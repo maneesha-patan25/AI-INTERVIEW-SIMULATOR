@@ -1,11 +1,37 @@
-import { Button } from "@/components/ui/button";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import PublicLayout from "@/layouts/public-layout";
+import AuthenticationLayout from "@/layouts/auth-layout";
+import HomePage from "@/routes/home";
+import SignInPage from "@/routes/sign-in";
+import SignOutPage from "@/routes/sign-out";
+import ProtectRoutes from "./layouts/protected-routes";// Adjust if needed
+import MainLayout from "@/layouts/main-layout.tsx" // Adjust if needed
 
-const App = () => {
+ const App = () => {
   return (
-    <div>
-      <p>App</p>
-      <Button>Click Me</Button>
-    </div>
+    <Router>
+      <Routes>
+        {/* Public routes */}
+        <Route element={<PublicLayout />}>
+          <Route index element={<HomePage />} />
+        </Route>
+
+        {/* Authentication layout */}
+        <Route element={<AuthenticationLayout />}>
+          <Route path="/signin/*" element={<SignInPage />} />
+          <Route path="/signout/*" element={<SignOutPage />} />
+        </Route>
+
+        {/* Protected routes */}
+        <Route element={
+          <ProtectRoutes>
+            <MainLayout />
+          </ProtectRoutes>
+        }>
+          {/* Add protected child routes here */}
+        </Route>
+      </Routes>
+    </Router>
   );
 };
 
