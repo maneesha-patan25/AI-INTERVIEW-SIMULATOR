@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import AuthHandler from "@/handlers/auth-handleer";
 
 // Main layout for all public pages (TypeScript version)
  export const PublicLayout: React.FC = () => {
@@ -8,6 +9,7 @@ import Footer from "@/components/footer";
     <div className="w-full">
       {/*handler to store the user data*}
       {/* Header displayed on all pages */}
+      <AuthHandler />
       <Header />
 
       {/* Main content rendered based on route */}
