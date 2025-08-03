@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Header from "@/components/header";
-import Footer from "@/components/footer";
+import { Footer } from "@/components/footer";
 import { Container } from "@/components/container"; // ✅ Adjust path if needed
 
 // Main layout for all public pages

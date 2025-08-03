@@ -4,11 +4,10 @@ import Footer from "@/components/footer";
 import AuthHandler from "@/handlers/auth-handleer";
 
 // Main layout for all public pages (TypeScript version)
- export const PublicLayout: React.FC = () => {
+export const PublicLayout: React.FC = () => {
   return (
     <div className="w-full">
-      {/*handler to store the user data*}
-      {/* Header displayed on all pages */}
+      {/* handler to store the user data */}
       <AuthHandler />
       <Header />
 
